@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI生活模拟器 - 租房奇遇</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 启动画面 -->
+        <div class="start-screen" id="startScreen">
+            <div class="logo-container">
+                <div class="logo">🏠</div>
+                <h1>AI生活模拟器</h1>
+                <p class="subtitle">体验不同的人生剧情</p>
+            </div>
+            <div class="start-btn-container">
+                <button class="start-btn" id="startBtn">
+                    <span>开始体验</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">📖</span>
+                    <span>沉浸剧情</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span>多重选择</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🏆</span>
+                    <span>成就系统</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏主界面 -->
+        <div class="game-screen hidden" id="gameScreen">
+            <header class="game-header">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="header-content">
+                    <span class="episode-title" id="episodeTitle">第一章：租房风波</span>
+                    <div class="stats">
+                        <span class="stat" id="choiceCount">0 次选择</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="story-container" id="storyContainer">
+                <!-- 剧情内容动态加载 -->
+            </main>
+
+            <!-- 对话区域 -->
+            <div class="dialogue-section" id="dialogueSection">
+                <div class="dialogue-header">
+                    <div class="npc-avatar" id="npcAvatar">🏠</div>
+                    <div class="npc-info">
+                        <span class="npc-name" id="npcName">房东王大爷</span>
+                        <span class="npc-status" id="npcStatus">正在说话...</span>
+                    </div>
+                </div>
+                <div class="dialogue-content" id="dialogueContent">
+                    <!-- 对话内容 -->
+                </div>
+            </div>
+
+            <!-- 选项区域 -->
+            <div class="choices-section" id="choicesSection">
+                <!-- 选项按钮动态生成 -->
+            </div>
+
+            <!-- 成就弹窗 -->
+            <div class="achievement-popup hidden" id="achievementPopup">
+                <div class="achievement-content">
+                    <div class="achievement-icon" id="achievementIcon">🏆</div>
+                    <div class="achievement-text">
+                        <h3 id="achievementTitle">成就解锁!</h3>
+                        <p id="achievementDesc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 结局画面 -->
+        <div class="ending-screen hidden" id="endingScreen">
+            <div class="ending-content">
+                <div class="ending-rating" id="endingRating">⭐⭐⭐⭐⭐</div>
+                <h2 class="ending-title" id="endingTitle">租房达人</h2>
+                <p class="ending-desc" id="endingDesc"></p>
+                
+                <div class="ending-stats">
+                    <div class="ending-stat">
+                        <span class="stat-label">选择次数</span>
+                        <span class="stat-value" id="finalChoices">0</span>
+                    </div>
+                    <div class="ending-stat">
+                        <span class="stat-label">结局评价</span>
+                        <span class="stat-value" id="finalRating">完美</span>
+                    </div>
+                </div>
+
+                <div class="ending-actions">
+                    <button class="share-btn" id="shareBtn">
+                        <span>📤</span> 分享给朋友
+                    </button>
+                    <button class="replay-btn" id="replayBtn">
+                        <span>🔄</span> 再玩一次
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
