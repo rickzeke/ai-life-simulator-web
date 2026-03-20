@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI生活模拟器 - 租房奇遇</title>
+    <title>AI生活模拟器 - 体验不同的人生</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-apartment">
     <div class="app-container">
         <!-- 启动画面 -->
         <div class="start-screen" id="startScreen">
             <div class="logo-container">
-                <div class="logo">🏠</div>
+                <div class="logo">🎭</div>
                 <h1>AI生活模拟器</h1>
                 <p class="subtitle">体验不同的人生剧情</p>
             </div>
@@ -24,6 +24,35 @@
                     <div class="btn-glow"></div>
                 </button>
             </div>
+
+            <!-- 场景选择卡片 -->
+            <div class="scenario-cards" id="scenarioCards" style="display:none;">
+                <div class="scenario-card" data-scenario="apartment">
+                    <div class="scenario-icon">🏠</div>
+                    <div class="scenario-info">
+                        <h3>租房奇遇</h3>
+                        <p>毕业季到了，你拖着行李箱站在陌生的城市街头...</p>
+                        <div class="scenario-tags">
+                            <span class="tag">新手推荐</span>
+                            <span class="tag">6种结局</span>
+                        </div>
+                    </div>
+                    <div class="scenario-play-btn">开始</div>
+                </div>
+                <div class="scenario-card office-card" data-scenario="office">
+                    <div class="scenario-icon">💼</div>
+                    <div class="scenario-info">
+                        <h3>职场修炼</h3>
+                        <p>从求职面试到职场晋升，体验真实的职场人生...</p>
+                        <div class="scenario-tags">
+                            <span class="tag new-tag">新增</span>
+                            <span class="tag">10+结局</span>
+                        </div>
+                    </div>
+                    <div class="scenario-play-btn">开始</div>
+                </div>
+            </div>
+
             <div class="features">
                 <div class="feature">
                     <span class="feature-icon">📖</span>
@@ -48,11 +77,42 @@
                 </div>
                 <div class="header-content">
                     <span class="episode-title" id="episodeTitle">第一章：租房风波</span>
-                    <div class="stats">
-                        <span class="stat" id="choiceCount">0 次选择</span>
+                    <div class="header-right">
+                        <div class="stats">
+                            <span class="stat" id="choiceCount">0 次选择</span>
+                        </div>
+                        <button class="back-home-btn" id="backToHomeBtn" title="返回主页">🏠</button>
                     </div>
                 </div>
             </header>
+
+            <!-- 技能面板（职场模式） -->
+            <div class="skill-panel hidden" id="skillPanel">
+                <div class="skill-item">
+                    <span class="skill-icon">🗣️</span>
+                    <span class="skill-name">沟通</span>
+                    <div class="skill-bar"><div class="skill-bar-fill" id="skillComm"></div></div>
+                    <span class="skill-value" id="skillCommVal">0</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">💻</span>
+                    <span class="skill-name">技术</span>
+                    <div class="skill-bar"><div class="skill-bar-fill" id="skillTech"></div></div>
+                    <span class="skill-value" id="skillTechVal">0</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📊</span>
+                    <span class="skill-name">管理</span>
+                    <div class="skill-bar"><div class="skill-bar-fill" id="skillMgmt"></div></div>
+                    <span class="skill-value" id="skillMgmtVal">0</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🤝</span>
+                    <span class="skill-name">政治</span>
+                    <div class="skill-bar"><div class="skill-bar-fill" id="skillPol"></div></div>
+                    <span class="skill-value" id="skillPolVal">0</span>
+                </div>
+            </div>
 
             <main class="story-container" id="storyContainer">
                 <!-- 剧情内容动态加载 -->
@@ -68,13 +128,11 @@
                     </div>
                 </div>
                 <div class="dialogue-content" id="dialogueContent">
-                    <!-- 对话内容 -->
                 </div>
             </div>
 
             <!-- 选项区域 -->
             <div class="choices-section" id="choicesSection">
-                <!-- 选项按钮动态生成 -->
             </div>
 
             <!-- 成就弹窗 -->
@@ -95,7 +153,7 @@
                 <div class="ending-rating" id="endingRating">⭐⭐⭐⭐⭐</div>
                 <h2 class="ending-title" id="endingTitle">租房达人</h2>
                 <p class="ending-desc" id="endingDesc"></p>
-                
+
                 <div class="ending-stats">
                     <div class="ending-stat">
                         <span class="stat-label">选择次数</span>
